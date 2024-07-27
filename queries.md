@@ -9,7 +9,7 @@ In markdown, you can place a code block inside of three backticks (```) followed
 
 \```sql
 
-SELECT \* FROM users;
+SELECT * FROM users;
 
 \```
 
@@ -17,21 +17,63 @@ Using the `movies_db` database, write the correct SQL queries for each of these 
 
 1.  The title of every movie.
 
+    \``` sql
+
+    SELECT title FROM movies;
+
+    \```
+
 2.  All information on the G-rated movies.
 
-3.  The title and release year of every movie, ordered with the
-    oldest movie first.
+    \```
+
+    SELECT * FROM movies WHERE rating = 'G';
+
+    \```
+
+3.  The title and release year of every movie, ordered with the oldest movie first.
+
+    \```
+
+    SELECT title, release_year FROM movies ORDER BY ASC;
     
+    \```
+
 4.  All information on the 5 longest movies.
+
+    \```
+
+    SELECT * FROM movies ORDER BY runtime DESC LIMIT 5;
+
+    \```
 
 5.  A query that returns the columns of `rating` and `total`, tabulating the
     total number of G, PG, PG-13, and R-rated movies.
 
+    \```
+
+
+
+    \```
+
 6.  A table with columns of `release_year` and `average_runtime`,
     tabulating the average runtime by year for every movie in the database. The data should be in reverse chronological order (i.e. the most recent year should be first).
 
+    \```
+
+    
+
+    \```
+
 7.  The movie title and studio name for every movie in the
     database.
+
+    \```
+
+    SELECT title, name FROM movies JOIN studios ON 
+    movies.studio_id = studios.id;
+
+    \```
 
 8.  The star first name, star last name, and movie title for every
     matching movie and star pair in the database.
